@@ -1,0 +1,6 @@
+export const title = 'Area Riservata'
+export const intro = 'Inserisci le tue credenziali di accesso.'
+export const username = 'Username'
+export const password = 'Password'
+export const login = 'Log In'
+export const cancel = 'Annulla'
