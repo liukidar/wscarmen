@@ -1,6 +1,6 @@
-# igplombardia
+# carmentese.it
 
-> website igplombardia
+> website carmentese.it
 
 ## Build Setup
 
@@ -9,7 +9,7 @@
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm run serve
 
 # build for production with minification
 npm run build
