@@ -1,37 +1,39 @@
 <template>
   <div id="app">
-    <div id="!">
-      <v-navbar></v-navbar>
-      <v-sidebar></v-sidebar>
-      <main>
-        <login-modal></login-modal>
-        <router-view/>
-      </main>
-      <fabbutton></fabbutton>
-      <scroll-up-arrow></scroll-up-arrow>
-      <v-footer></v-footer>
-    </div>
+    <scroll-wrap name="window" style="height: 100vh">
+      <div class="white vertical-flex" id="!" style="min-height: 100vh">
+        <main class="flex-filler">
+          <router-view :loaded="!loading"/>
+        </main>
+        <foot></foot>
+      </div>
+      <template slot="overlay">
+        <navbar v-show="this.$route.path.indexOf('/article/') == -1"></navbar>
+        <scroll-up-arrow></scroll-up-arrow>
+      </template>
+    </scroll-wrap>
   </div>
 </template>
 
 <script>
-import './lib/js/materialize.min.js'
-import VNavbar from './pages/components/Navbar'
-import VSidebar from './pages/components/Sidebar'
-import VFooter from './pages/components/Footer'
-import Fabbutton from './pages/components/Fabbutton'
-import ScrollUpArrow from './pages/components/misc/ScrollUpArrow'
-import LoginModal from './pages/components/modals/LoginModal'
+import 'lib/js/masonry.min.js'
+import 'lib/js/materialize.min.js'
+import { Footer as Foot, Navbar } from 'cmps/site'
+import { ScrollUpArrow, ScrollWrap } from 'cmps/lib'
 
 export default {
   name: 'App',
   components: {
-    VNavbar,
-    VSidebar,
-    VFooter,
-    Fabbutton,
+    Foot,
     ScrollUpArrow,
-    LoginModal
+    ScrollWrap,
+    Navbar
+  },
+  data: function() {
+    return {
+      loading: true,
+      scrollHandle: null
+    }
   },
   methods: {
     materialize() {
@@ -43,94 +45,52 @@ export default {
       M.Tooltip.init(elems, {})
     }
   },
-  beforeCreate() {
-    this.$store.commit('mApp/setLangRoot', this.$lang)
-  },
   mounted() {
     this.materialize()
+    window.onload = () => {
+      this.loading = false
+      let event = new CustomEvent('resize')
+      window.dispatchEvent(event)
+    }
   },
   updated() {
     this.materialize()
+  },
+  watch: {
+    $route(to, from) {
+      this.$nextTick(() => {
+        let event = new CustomEvent('resize')
+        window.dispatchEvent(event)
+      })
+    }
   }
 }
 </script>
 
 <style>
+@import './lib/css/style.css';
 @import './lib/css/materialize.min.css';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import 'https://fonts.googleapis.com/css?family=Poiret+One';
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+
+@font-face {
+  font-family: 'Anders';
+  src: url('./assets/Anders.ttf');
+}
 
 #app {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   max-width: 100vw;
-}
-
-body {
-  overflow-y: scroll !important;
-  overflow-x: hidden !important;
-  line-height: 1.2;
+  width: 100%;
+  position: relative;
 }
 
 *:focus {
   outline: 0;
-}
-
-header,
-main,
-footer {
-  padding-right: 300px;
-}
-
-@media only screen and (max-width: 992px) {
-  header,
-  main,
-  footer {
-    padding-right: 0;
-  }
-}
-
-::-webkit-scrollbar {
-  width: 12px;
-  position: absolute;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 0px;
-  background: #fff;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.25);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.35);
-}
-
-.sidenav li > a > i.material-icons {
-  height: auto !important; /*BUG?*/
-}
-
-.main-color {
-  background: #0079a0 !important;
-}
-
-.btn.main-color:hover {
-  background: #229Bc2 !important;
-}
-
-hr {
-  border: none;
-  height: 1px;
-}
-
-.title {
-  padding: 20px;
-  margin-top: 0;
-  font-family: 'Poiret ONe';
-  text-transform: uppercase;
 }
 
 ul.browser-default {
@@ -145,7 +105,28 @@ ul.browser-default > li {
 .row {
   margin-bottom:0;
 }
-.row .col {
-  margin-bottom:20px;
+
+.hr {
+  height:2px;
+  width:100%;
+}
+
+.vr {
+  width:2px;
+  height:100%;
+  display:inline-block;
+}
+
+a.hr, a.vr {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hr.short {
+  width:80%;
+}
+
+.vr.short {
+  height:80%;
 }
 </style>
