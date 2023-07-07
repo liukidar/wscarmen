@@ -9,18 +9,19 @@ export const module = {
         about: {
           title: 'Lo Studio',
           description: 'Progettiamo e realizziamo il luogo in cui vivere e lavorare, amare e giocare.<br>' +
-          'Immaginiamo l’ambiente in cui respiriamo come una seconda pelle, dove i colori e i materiali si ' +
-          'uniscono in modo armonico,<br>creando un calore visivo e personale<i>, unico.</i>',
+            'Immaginiamo l’ambiente in cui respiriamo come una seconda pelle, dove i colori e i materiali si ' +
+            'uniscono in modo armonico,<br>creando un calore visivo e personale<i>, unico.</i>',
           people: [
             {
               name: 'Maria Tesè',
               type: 'architetto - titolare dello studio',
+              img: 'carmen_c.jpg',
               content: [
                 'Sono nata a Ghedi, in provincia di Brescia, il 5 novembre 1965. ' +
-                  'Ho frequentato il liceo artistico ad indirizzo architettonico ed in seguito mi sono laureata in ' +
-                  'architettura al Politecnico di Milano.',
+                'Ho frequentato il liceo artistico ad indirizzo architettonico ed in seguito mi sono laureata in ' +
+                'architettura al Politecnico di Milano.',
                 'Ottenuta l’abilitazione, nel 1995 ho aperto il mio primo studio nel centro di Brescia, dopo alcuni ' +
-                  'anni come dipendente di un importante studio di architettura e urbanistica della mia città.'
+                'anni come dipendente di un importante studio di architettura e urbanistica della mia città.'
               ],
               info: [
                 'Mi occupo soprattutto di ristrutturazioni di edifici ad uso residenziale, oltre alla progettazione di ville unifamiliari ed edifici commerciali e direzionali.',
@@ -39,11 +40,12 @@ export const module = {
             {
               name: 'Sara Pinchetti',
               type: 'architetto - collaboratrice',
+              img: 'sara_c.jpg',
               content: [
                 'Sono nata a Brescia il 7 ottobre 1992.',
                 'Dopo aver preso il diploma di liceo scientifico mi sono laureata nel 2014 in Scienze ' +
-                  'dell’Architettura e nel 2018 in “Architettura per il nuovo e l’antico” all’università IUAV di ' +
-                  'Venezia. Nel dicembre 2018 ho ottenuto l’abilitazione.'
+                'dell’Architettura e nel 2018 in “Architettura per il nuovo e l’antico” all’università IUAV di ' +
+                'Venezia. Nel dicembre 2018 ho ottenuto l’abilitazione.'
               ],
               info: [
                 'Mi sono laureata con la tesi “Visioni paesaggistiche per l’ex monastero di Santo Stefano. ' +
@@ -80,7 +82,7 @@ export const module = {
         }
       },
       quotes: [
-        '"progettare con particolare attenzione ai sistemi costruttivi volti al risparmio energetico, con l’utilizzo di energie rinnovabili, anche in costruzioni vincolate e/o paesaggisticamente rilevanti."'
+        '"Progettare con particolare attenzione ai sistemi costruttivi volti al risparmio energetico, con l’utilizzo di energie rinnovabili, anche in costruzioni vincolate e/o paesaggisticamente rilevanti."'
       ]
     },
     en: {
