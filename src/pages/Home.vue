@@ -157,6 +157,14 @@
             :description="el.description" :image="el.img"></preview>
         </div>
       </div>
+      <div class="container section center-align">
+        <h2 class="black-text title text-important no-margin">{{ text.sections.partners.title }}</h2>
+        <div class="row">
+          <div class="col l3 m4 s6" v-for="partner in text.sections.partners.people" :key="partner">
+            <div class="partner flow-text z-depth-1">{{ partner }}</div>
+          </div>
+        </div>
+      </div>
     </paper-container>
     <div class="black" id="infos" style="overflow:auto">
       <div class="section">
@@ -387,5 +395,14 @@ export default {
   top: 100%;
   left: 100%;
   opacity: 0;
+}
+
+.partner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96px;
+  padding: 16px;
+  margin: 16px 8px;
 }
 </style>

@@ -63,6 +63,24 @@ export const module = {
         news: {
           title: 'Novità'
         },
+        partners: {
+          title: 'I nostri collaboratori',
+          people: [
+            'Studio d’ingegneria SpA-GO di Pinchetti e Trainini',
+            'Costruzioni Gallia Srl',
+            'Elettroriz di Rizzini Pietro',
+            'DALL’AVA - Arredamenti - Serramenti - Superfici',
+            ' Sbaraini Srl - Pavimenti, rivestimenti e arredamento',
+            'Termoidraulica di Torcoli Omar',
+            'Arte & Ferro di Artistico Angelo',
+            'Impianti termosanitari di Belleri Ivano',
+            'Vetreria f.lli Crotti Srl',
+            'Falegnameria Menolfi Srl',
+            'Vitanova di Lleshaj Kreshnik',
+            'Tinteggiature Fantoni Mauro',
+            'Brembo ascensori Srl'
+          ]
+        },
         infos: {
           title: 'Info'
         },
